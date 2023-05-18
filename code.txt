@@ -15,3 +15,17 @@ UPDATE wp_postmeta SET meta_value = REPLACE (meta_value, 'https://старий_�
 Якщо на сайті використовуються коментарі слід додатково виконати ще два запити:
 UPDATE wp_comments SET comment_content = REPLACE (comment_content, 'https://старий_домен.com', 'https://новий_домен.com');
 UPDATE wp_comments SET comment_author_url = REPLACE (comment_author_url, 'https://старий_домен.com', 'https://новий_домен.com');
+
+
+
+На хості юкрейн не треба робити доступ 755 644
+Якшо скачуємо бд з сайта і закачуємо на укрейн хост то треба зробити запроси в phpAdmin ці:
+
+UPDATE wp_options SET option_value = REPLACE(option_value, 'https://старий_домен.com', 'https://новий_домен.com') WHERE option_name = 'home' OR option_name = 'siteurl';
+UPDATE wp_posts SET guid = REPLACE(guid, 'https://старий_домен.com','https://новий_домен.com');
+UPDATE wp_posts SET post_content = REPLACE(post_content, 'https://старий_домен.com', 'https://новий_домен.com');
+Для зміни адреси сайту в метаданих слід додатково виконати ще один запит:
+UPDATE wp_postmeta SET meta_value = REPLACE (meta_value, 'https://старий_домен.com','https://новий_домен.com');
+Якщо на сайті використовуються коментарі слід додатково виконати ще два запити:
+UPDATE wp_comments SET comment_content = REPLACE (comment_content, 'https://старий_домен.com', 'https://новий_домен.com');
+UPDATE wp_comments SET comment_author_url = REPLACE (comment_author_url, 'https://старий_домен.com', 'https://новий_домен.com');
