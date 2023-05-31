@@ -29,3 +29,24 @@ UPDATE wp_postmeta SET meta_value = REPLACE (meta_value, 'https://старий_�
 Якщо на сайті використовуються коментарі слід додатково виконати ще два запити:
 UPDATE wp_comments SET comment_content = REPLACE (comment_content, 'https://старий_домен.com', 'https://новий_домен.com');
 UPDATE wp_comments SET comment_author_url = REPLACE (comment_author_url, 'https://старий_домен.com', 'https://новий_домен.com');
+
+
+
+-----------------------------------
+UPDATE wp_options SET option_value = replace(option_value, 'Existing URL', 'New URL') WHERE option_name = 'home' OR option_name = 'siteurl';
+ 
+UPDATE wp_posts SET post_content = replace(post_content, 'Existing URL', 'New URL');
+ 
+UPDATE wp_postmeta SET meta_value = replace(meta_value,'Existing URL','New URL');
+ 
+UPDATE wp_usermeta SET meta_value = replace(meta_value, 'Existing URL','New URL');
+ 
+UPDATE wp_links SET link_url = replace(link_url, 'Existing URL','New URL');
+ 
+UPDATE wp_comments SET comment_content = replace(comment_content, 'Existing URL','New URL');
+
+UPDATE wp_posts SET post_content = replace(post_content, 'Existing URL', 'New URL');
+
+UPDATE wp_links SET link_image = replace(link_image, 'Existing URL','New URL');
+
+UPDATE wp_posts SET guid = replace(guid, 'Existing URL','New URL');
