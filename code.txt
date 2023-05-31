@@ -31,7 +31,7 @@ UPDATE wp_comments SET comment_content = REPLACE (comment_content, 'https://ст
 UPDATE wp_comments SET comment_author_url = REPLACE (comment_author_url, 'https://старий_домен.com', 'https://новий_домен.com');
 
 
-
+треба перевіряти які посилання в wp_options (це в бд), там повинні буди посулання 'New URL'
 -----------------------------------
 UPDATE wp_options SET option_value = replace(option_value, 'Existing URL', 'New URL') WHERE option_name = 'home' OR option_name = 'siteurl';
  
