@@ -1,3 +1,7 @@
+Якшо білий екран вп то треба виключити WPRocket
+Конфігурейшн папка чи папка кеш - кеш - треба видалити, кеш WPRocket.
+
+====================
 UPDATE wp_options SET option_value = REPLACE(option_value, 'https://shinieurope.awbs.dev', 'https://shinieurope.com.ua') WHERE option_name = 'home' OR option_name = 'siteurl';
 UPDATE wp_posts SET guid = REPLACE(guid, 'https://shinieurope.com.ua');
 UPDATE wp_posts SET post_content = REPLACE(post_content, 'hhttps://shinieurope.awbs.dev', 'https://shinieurope.com.ua');
